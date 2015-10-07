@@ -7,7 +7,7 @@ app.config(['$routeProvider', function($routeProvider){
         }).when('/countries/', {
             templateUrl : 'countries/countries.html',
             controller : 'CountriesController as countries'
-        }).when('/country/', {
+        }).when('/country/:country/:capital', {
             templateUrl : 'country/country.html',
             controller : 'CountryController as country'
         }).when('/error/', {
@@ -17,3 +17,11 @@ app.config(['$routeProvider', function($routeProvider){
     }]);
 
 
+app.factory('geonames', function(){
+    return{
+        data: null,
+        insert: function(d){
+            this.data = d;   
+        }
+    };
+});

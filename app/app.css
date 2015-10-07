@@ -17,7 +17,7 @@
 body {
     font-family: latolight;
 }
-.noselect {
+.noselect, .row, .cell {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -31,20 +31,33 @@ body {
     font-size: 12px;
     padding: 5px;
     opacity: 1;
+    border-radius: 4px;
+    margin: 2px;
+    background-color:#d9ecfc;
 }
 .btn:active {
     opacity: 0.5;
 }
+.btn:hover {
+    background-color: bisque;
+}
 
 #columnHeader, .row {
     position:relative;
-    width: 600px;
+    width: 590px;
     background-color: #ccc;
+}
+.row {
+    cursor: pointer;
+}
+.row:hover {
+    background-color: #afedaf !important;
 }
 .cell {
     float: left;
-    width: 100px;
-    padding: 4px
+    width: 96px;
+    padding: 4px;
+    text-align: center;
 }
 .clearFloat {
     clear: both;
@@ -58,9 +71,84 @@ header, #view {
     width: 617px;
     margin: 0px auto;
 }
+#tableWrapper{
+    background-color:#81b7e6;
+    padding: 5px;
+    border-radius: 4px;
+}
+#columnHeader {
+    background-color:#81b7e6;
+    color: #fff;
+    font-style: bold;
+    font-size: 12px
+}
 .odd {
-    background-color: #ff0 !important;
+    background-color: #b7e1e6 !important;
 }
 .even {
-    background-color:aqua;
+    background-color:#d2e7ff;
 }
+.error {
+    background-color:#ffd1d1;
+    border-radius: 5px;
+    border: 1px solid #af0000;
+    padding: 6px 8px 6px 8px;
+    font-size: 15px;
+    color: #af0000;
+}
+.err {
+    font-style: italic;
+    border-radius:5px;
+    background-color: #d13636;
+    color: #fff;
+    padding: 2px 5px 2px 5px;
+    margin: 0px 8px 0px 0px;
+}
+#countryDetailsWrapper tr{
+    height: 30px;
+}
+.detailHeading{
+    height: 28px;
+}
+#contentWrapper{
+    position: relative;
+}
+#flag {
+    height: 100px;
+    width: 200px;
+    position: relative;
+    z-index: 100;
+    top: 0px;
+    left: 400px;
+    background-size: contain;
+    background-color: #ff00ff;
+}
+#countryDetailTable {
+    position: relative;
+    z-index: 1;
+    top: -100px;
+    left: 0px;
+    width: 600px
+}
+
+td:first-child {
+    width: 164px;
+    text-align: right;
+    padding: 0px 5px 0px 0px;
+}
+#countryImage{
+    position: relative;
+    height: 200px;
+    width: 400px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin: 0px auto;
+    position: realtive;
+    top: -50px;
+}
+
+
+
+
+
