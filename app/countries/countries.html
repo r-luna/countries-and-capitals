@@ -1,6 +1,6 @@
 <div class="contentWrapper">
     
-    <p><span class="btn noselect" ng-click="country.home()">Home</span></p>
+    <p><span class="btn noselect" ng-click="countries.home()">Home</span></p>
     <div id="tableWrapper">
         <div id="columnHeader">
             <div class="cell">Name</div>
@@ -23,5 +23,11 @@
                 <div class="clearFloat"></div>
             </div>
         </div>
+    </div>
+    <div id="modalBackground" ng-class="{show:countries.canShowModal}"></div>
+    <div id="modalMessage" ng-class="{show:countries.canShowModal}">
+        <p>Error</p>
+        <p>{{ countries.modalMessage}}</p>
+        <p><span class="btn" ng-click="countries.hideModal()">Close</span></p>
     </div>
 </div>

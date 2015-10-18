@@ -16,6 +16,7 @@
 
 body {
     font-family: latolight;
+    height: 100%;
 }
 .noselect, .row, .cell {
     -webkit-touch-callout: none;
@@ -26,6 +27,7 @@ body {
     user-select: none;
 }
 .btn {
+    display: block-inline;
     cursor: pointer;
     border: 1px solid #ccc;
     font-size: 12px;
@@ -89,6 +91,8 @@ header, #view {
     background-color:#d2e7ff;
 }
 .error {
+    position: relative;
+    top: 200px;
     background-color:#ffd1d1;
     border-radius: 5px;
     border: 1px solid #af0000;
@@ -121,7 +125,8 @@ header, #view {
     top: 0px;
     left: 400px;
     background-size: contain;
-    background-color: #ff00ff;
+    background-repeat: no-repeat;
+    background-position: 50%;
 }
 #countryDetailTable {
     position: relative;
@@ -131,11 +136,6 @@ header, #view {
     width: 600px
 }
 
-td:first-child {
-    width: 164px;
-    text-align: right;
-    padding: 0px 5px 0px 0px;
-}
 #countryImage{
     position: relative;
     height: 200px;
@@ -144,11 +144,71 @@ td:first-child {
     background-repeat: no-repeat;
     background-position: 50%;
     margin: 0px auto;
-    position: realtive;
+    position: relative;
     top: -50px;
+}
+
+.loading {
+    position:relative;
+    height:100%;
+    min-height: 100%;
+}
+.loading:before {
+    position:absolute;
+    content:"";
+    left:0;
+    bottom:0;
+    right:0;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,0.9) no-repeat center center;
+    background-image: url('images/loading.gif');
+    background-size: 10%;
+    background-position: 50% 30%;
 }
 
 
 
 
+#allContentWrapper {
+    position:absolute;
+    min-height: 100%;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
 
+#modalBackground {
+    position: fixed;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.6;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 200;
+    display: none;
+}
+
+#modalMessage {
+    position: absolute;
+    z-index: 201;
+    border: 2px solid #000;
+    border-radius: 5px;
+    padding: 12px;
+    background-color: #fff;
+    top: 25%;
+    left: 30%;
+    right: 30%;
+    bottom: 45%;
+    display: none;
+    overflow:auto;
+}
+.show {
+    display:block !important;
+}
+.setLineHeight {
+    line-height: 2em;
+}

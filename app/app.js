@@ -11,7 +11,7 @@ app.config(['$routeProvider', function($routeProvider){
             templateUrl : 'country/country.html',
             controller : 'CountryController as country'
         }).when('/error/', {
-            templateUrl : '/'
+            templateUrl : '/error/error.html'
         })
         .otherwise('/');
     }]);
@@ -24,4 +24,18 @@ app.factory('geonames', function(){
             this.data = d;   
         }
     };
+});
+
+app.run(function($rootScope, $location, $timeout) {
+    $rootScope.$on('$routeChangeError', function() {
+        $location.path("/error");
+    });
+    $rootScope.$on('$routeChangeStart', function() {
+        $rootScope.isLoading = true;
+    });
+    $rootScope.$on('$routeChangeSuccess', function() {
+      $timeout(function() {
+        $rootScope.isLoading = false;
+      }, 400);
+    });
 });

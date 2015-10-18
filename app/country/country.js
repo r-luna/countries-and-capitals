@@ -6,7 +6,7 @@ app.controller('CountryController', function($scope,$routeParams,$location,$http
     var that = this;
   	
     /**
-  	 * Gets the geonmaes data for the given capital city.
+  	 * Gets the geonames data for the given capital city.
   	 * @type {Function}
      * @name country.getData
      * @param {String} capital - the name of the city
@@ -127,7 +127,7 @@ app.controller('CountryController', function($scope,$routeParams,$location,$http
     };
     
   	/**
-  	 * Returns the URI fro the countr's map.
+  	 * Returns the URI for the country's map.
   	 * @type {Function}
      * @name country.returnCountryURI
   	 * @return {String} flag URI

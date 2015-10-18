@@ -1,19 +1,37 @@
 
-app.controller('CountriesController', function($scope, $location, $http, geonames){
+app.controller('CountriesController', function($scope, $rootScope, $location, $http, geonames){
     var that = this;
     this.data = null;
     
-    this.back = function(){
+    this.canShowModal = false;
+    this.modalMessage = '';
+    
+    this.home = function(){
         $location.path('/');  
     };
     
+    function showModal(str){
+        that.modalMessage = str;
+        that.canShowModal = true;
+    }
+    
+    this.hideModal = function(){
+        that.canShowModal = false;
+        that.modalMessage = '';
+    };
+    
     this.showCapitalDetail = function(country,capital){
+        if (!country || !capital){
+            showModal('Unable to find country information without a capital.');
+            return;
+        }
         var niceCountry = country.replace(' ','_');
         var niceCapital = capital.replace(' ','_');
-      $location.path('/country/' + niceCountry + '/' + niceCapital);
+        $location.path('/country/' + niceCountry + '/' + niceCapital);
     };
     
     function getData(){
+        $rootScope.isLoadingData = true;
         $http({
             url: 'http://api.geonames.org/countryInfoJSON?username=eyepoker&_=' + Math.random(),
             method: 'GET',
@@ -25,13 +43,12 @@ app.controller('CountriesController', function($scope, $location, $http, geoname
                 that.data = geonames.data;
                 console.log(that.data);
             } else {
-                console.log(response.status, response.statusText);   
+                showModal(response.status, response.statusText);   
             }
+            $rootScope.isLoadingData = false;
         },
         function(data, status, headers, config) {
-            console.log('Failure :(');
-            // called when an error occurs or
-            // the server returns data with an error status
+            showModal(status);
         });
     }
     
