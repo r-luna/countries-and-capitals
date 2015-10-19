@@ -1,0 +1,43 @@
+<div class="contentWrapper">
+    <p><span class="btn noselect" ng-click="country.home()">Home</span><span class="btn noselect" ng-click="country.back()">Browse Countries</span></p>
+    <h2 class="detailHeading">{{ country.data.countryName }}</h2>
+    <div id="tableWrapper">
+        <div id="countryDetailsWrapper">
+            <div id="flag" style="background-image:url({{ country.returnFlagURI() }});"></div>
+            <table id="countryDetailTable" cellspacing="0" border="0">
+                <tr>
+                    <td width="160">Population of Country:</td><td>{{ country.returnCountryPopulation() | number }}</td>
+                </tr>
+                <tr ng-if="country.data.areaInSqKm">
+                    <td>Area in km<sup>2</sup>:</td><td>{{ country.data.areaInSqKm | number}}</td>
+                </tr>
+                <tr ng-if="!country.data.areaInSqKm">
+                    <td>Area:</td><td>Not available</td>
+                </tr>
+                <tr>
+                    <td>Capital:</td><td>{{ country.data.toponymName }}</td>
+                </tr>
+                <tr>
+                    <td>Population: </td><td>{{ country.data.population | number}}</td>
+                </tr>
+                <tr ng-if="country.neighbours.length !== 0">
+                    <td valign="top">Neighbors ({{ country.neighbours.length }}):</td>
+                    <td class="setLineHeight">
+                        <span ng-repeat="neighbour in country.neighbours track by $index">
+                            <span class="btn noselect" ng-click="country.showCountry(neighbour.countryName)"><nobr>{{ neighbour.countryName }}</nobr></span>
+                        </span>
+                    </td>
+                </tr>
+                <tr ng-if="country.neighbours.length === 0">
+                    <td>Neighbors:</td>
+                    <td>None</td>
+                </tr>
+            </table>
+            <div class="error" ng-show="country.error">
+                <span class="err">ERROR:</span> {{ country.error }}
+            </div>
+            <div id="countryImage" style="background-image: url({{ country.returnCountryURI() }});"></div>
+        </div>
+    </div>
+</div>
+

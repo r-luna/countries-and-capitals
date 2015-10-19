@@ -1,0 +1,34 @@
+<div class="contentWrapper">
+    
+    <p><span class="btn noselect" ng-click="countries.home()">Home</span></p>
+    <div id="tableWrapper">
+        <div id="columnHeader">
+            <div class="cell">Name</div>
+            <div class="cell">Country Code</div>
+            <div class="cell">Capital</div>
+            <div class="cell">Area in km2</div>
+            <div class="cell">Population</div>
+            <div class="cell">Continent</div>
+            <div class="clearFloat"></div>
+        </div>
+        <div id="scrollWrapper">
+            <div ng-repeat="country in countries.data | orderBy: 'countryName'">
+                <div class="row" ng-class-odd="'odd'" ng-class-even="'even'" ng-click="countries.showCapitalDetail(country.countryName,country.capital)">
+                    <div class="cell">{{ country.countryName }}</div>
+                    <div class="cell">{{ country.countryCode }}</div>
+                    <div class="cell">{{ country.capital }}</div>
+                    <div class="cell">{{ country.areaInSqKm | number }}</div>
+                    <div class="cell">{{ country.population | number}}</div>
+                    <div class="cell">{{ country.continentName }}</div>
+                    <div class="clearFloat"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalBackground" ng-class="{show:countries.canShowModal}"></div>
+    <div id="modalMessage" ng-class="{show:countries.canShowModal}">
+        <p>Error</p>
+        <p>{{ countries.modalMessage}}</p>
+        <p><span class="btn" ng-click="countries.hideModal()">Close</span></p>
+    </div>
+</div>
