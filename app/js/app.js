@@ -2,16 +2,16 @@ var app = angular.module('app', ['ngRoute','ngMessages','ngAnimate','ngTouch']).
     
 app.config(['$routeProvider', function($routeProvider){
         $routeProvider.when('/', {
-            templateUrl : 'home/home.html',
+            templateUrl : 'templates/home.html',
             controller : 'HomeController as home'
         }).when('/countries/', {
-            templateUrl : 'countries/countries.html',
+            templateUrl : 'templates/countries.html',
             controller : 'CountriesController as countries'
         }).when('/country/:country/:capital', {
-            templateUrl : 'country/country.html',
+            templateUrl : 'templates/country.html',
             controller : 'CountryController as country'
         }).when('/error/', {
-            templateUrl : '/error/error.html'
+            templateUrl : '/templates/error.html'
         })
         .otherwise('/');
     }]);
@@ -26,7 +26,7 @@ app.factory('geonames', function(){
     };
 });
 
-app.run(function($rootScope, $location, $timeout) {
+app.run(['$rootScope', '$location', '$timeout',function($rootScope, $location, $timeout) {
     $rootScope.$on('$routeChangeError', function() {
         $location.path("/error");
     });
@@ -36,6 +36,6 @@ app.run(function($rootScope, $location, $timeout) {
     $rootScope.$on('$routeChangeSuccess', function() {
       $timeout(function() {
         $rootScope.isLoading = false;
-      }, 400);
+      }, 700);
     });
-});
+}]);

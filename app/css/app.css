@@ -50,6 +50,8 @@ body {
     background-color: #ccc;
 }
 .row {
+    width: 568px;
+    overflow: hidden;
     cursor: pointer;
 }
 .row:hover {
@@ -57,7 +59,7 @@ body {
 }
 .cell {
     float: left;
-    width: 96px;
+    width: 92px;
     padding: 4px;
     text-align: center;
 }
@@ -65,6 +67,7 @@ body {
     clear: both;
 }
 #scrollWrapper{
+    font-size: 0.8em;
     width: 100%;
     height: 400px;
     overflow: auto;
@@ -72,11 +75,16 @@ body {
 header, #view {
     width: 617px;
     margin: 0px auto;
+    position: relative;
+    height: auto;
 }
 #tableWrapper{
     background-color:#81b7e6;
     padding: 5px;
     border-radius: 4px;
+}
+#view {
+    position:relative;
 }
 #columnHeader {
     background-color:#81b7e6;
@@ -161,8 +169,8 @@ header, #view {
     right:0;
     top:0;
     z-index:1000;
-    background:rgba(255,255,255,0.9) no-repeat center center;
-    background-image: url('images/loading.gif');
+    background:rgba(0,0,0,0.3) no-repeat center center;
+    background-image: url('../images/loading.gif');
     background-size: 10%;
     background-position: 50% 30%;
 }
@@ -199,10 +207,10 @@ header, #view {
     border-radius: 5px;
     padding: 12px;
     background-color: #fff;
-    top: 25%;
-    left: 30%;
-    right: 30%;
-    bottom: 45%;
+    top: 20%;
+    left: 20%;
+    right: 20%;
+    bottom: 40%;
     display: none;
     overflow:auto;
 }
@@ -211,4 +219,27 @@ header, #view {
 }
 .setLineHeight {
     line-height: 2em;
+}
+
+#view.ng-enter {
+    opacity: 0;
+    transition: all .5s ease;
+    transition-delay: .7s;
+}
+#view.ng-enter.ng-enter-active{
+    opacity: 1;
+}
+#view.ng-leave {
+    opacity: 1;
+    transition: all .5s ease;
+    transition-delay: 0s;
+}
+#view.ng-leave.ng-leave-active{
+    opacity: 0;
+}
+
+
+.contentWrapper {
+    position: absolute;
+    top: 1px;
 }

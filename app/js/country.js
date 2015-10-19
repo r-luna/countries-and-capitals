@@ -1,5 +1,5 @@
 
-app.controller('CountryController', function($scope,$routeParams,$location,$http,geonames){
+app.controller('CountryController',['$scope','$routeParams','$location','$http','geonames', function($scope,$routeParams,$location,$http,geonames){
     
     // PRIVATE
     
@@ -186,4 +186,4 @@ app.controller('CountryController', function($scope,$routeParams,$location,$http
         });
     }
     
-});
+}]);

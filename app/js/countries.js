@@ -1,5 +1,5 @@
 
-app.controller('CountriesController', function($scope, $rootScope, $location, $http, geonames){
+app.controller('CountriesController',['$scope', '$rootScope', '$location', '$http', 'geonames', function($scope, $rootScope, $location, $http, geonames){
     var that = this;
     this.data = null;
     
@@ -60,4 +60,4 @@ app.controller('CountriesController', function($scope, $rootScope, $location, $h
         }
     });
     
-});
+}]);

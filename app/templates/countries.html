@@ -12,15 +12,16 @@
             <div class="clearFloat"></div>
         </div>
         <div id="scrollWrapper">
-            <div class="row" ng-class-odd="'odd'" ng-class-even="'even'" ng-repeat="country in countries.data | orderBy: 'countryName'" 
-                 ng-click="countries.showCapitalDetail(country.countryName,country.capital)">
-                <div class="cell">{{ country.countryName }}</div>
-                <div class="cell">{{ country.countryCode }}</div>
-                <div class="cell">{{ country.capital }}</div>
-                <div class="cell">{{ country.areaInSqKm | number }}</div>
-                <div class="cell">{{ country.population | number}}</div>
-                <div class="cell">{{ country.continentName }}</div>
-                <div class="clearFloat"></div>
+            <div ng-repeat="country in countries.data | orderBy: 'countryName'">
+                <div class="row" ng-class-odd="'odd'" ng-class-even="'even'" ng-click="countries.showCapitalDetail(country.countryName,country.capital)">
+                    <div class="cell">{{ country.countryName }}</div>
+                    <div class="cell">{{ country.countryCode }}</div>
+                    <div class="cell">{{ country.capital }}</div>
+                    <div class="cell">{{ country.areaInSqKm | number }}</div>
+                    <div class="cell">{{ country.population | number}}</div>
+                    <div class="cell">{{ country.continentName }}</div>
+                    <div class="clearFloat"></div>
+                </div>
             </div>
         </div>
     </div>

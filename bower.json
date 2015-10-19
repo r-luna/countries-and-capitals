@@ -1,0 +1,29 @@
+{
+  "name": "countries_and_capitals_app",
+  "version": "0.0.0",
+  "authors": [
+    "Rick Luna <rluna@neonix.net>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [
+    "globals"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7",
+    "angular-animate": "~1.4.7",
+    "angular-messages": "~1.4.7",
+    "angular-touch": "~1.4.7"
+  }
+}
